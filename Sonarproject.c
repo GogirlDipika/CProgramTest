@@ -2,6 +2,14 @@
 #include <stdlib.h>
 
 int main() {
+    int c;
+    char var;//unused variable
+    //to check for bug and code smell
+    //memory allocation
+    //c programming 
+    //soncloud testing
+    //how to check c programming
+    //understand the memory allocation
     char* str = (char*)malloc(10);
     if (str != NULL) {
         printf("Enter a string: ");
