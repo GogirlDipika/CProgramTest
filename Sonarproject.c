@@ -9,7 +9,6 @@ int main() {
     //c programming 
     //soncloud testing
     //how to check c programming
-    //understand the memory allocation
     char* str = (char*)malloc(10);
     if (str != NULL) {
         printf("Enter a string: ");
