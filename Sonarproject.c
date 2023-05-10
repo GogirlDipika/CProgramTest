@@ -6,7 +6,7 @@ int main() {
     char var;//unused variable
     //to check for bug and code smell
     //memory allocation
-    //c programming
+    //c programming.
     //soncloud testing
     //how to check c programming
     char* str = (char*)malloc(10);
