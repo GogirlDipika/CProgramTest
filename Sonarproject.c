@@ -4,7 +4,7 @@
 int main() {
     int c;
     char var;//unused variable
-    //to check for bug and code smell
+    //to check for bug and code smell.
     //memory allocation
     //c programming
     //soncloud testing
