@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Compile') {
             steps {
-                bat 'gcc -o myprogram.exe myprogram.c'
+                bat 'gcc -o myprogram.exe Sonarproject.c'
             }
         }
         stage('Test') {
