@@ -7,7 +7,7 @@ int main() {
     //to check for bug and code smell
     //memory allocation
     //c programming
-    //soncloud testing
+    //soncloud testin
     //how to check c programming
     char* str = (char*)malloc(10);
     if (str != NULL) {
