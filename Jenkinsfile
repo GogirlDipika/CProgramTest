@@ -8,13 +8,13 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/demo_private']], extensions: [], userRemoteConfigs: [[credentialsId: 'PAT_Jenkins', url: 'https://github.com/surajkumarbarik/demo_sonarqube_private.git']])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkinstoken', url: 'https://github.com/GogirlDipika/CProgramTest.git']])
             }
         }
         
         stage('clone') {
             steps {
-                git branch: 'demo_private', credentialsId: 'PAT_Jenkins', url: 'https://github.com/surajkumarbarik/demo_sonarqube_private.git'
+                git branch: 'main', credentialsId: 'jenkinstoken', url: 'https://github.com/GogirlDipika/CProgramTest.git'
             }
         }
     }
