@@ -17,6 +17,16 @@ pipeline {
                 git branch: 'main', credentialsId: 'jenkinstoken', url: 'https://github.com/GogirlDipika/CProgramTest.git'
             }
         }
+        stage('Compile') {
+            steps {
+                bat 'gcc -o myprogram.exe myprogram.c'
+            }
+        }
+        stage('Test') {
+            steps {
+                bat 'myprogram.exe'
+            }
+        }
     }
 }
 
