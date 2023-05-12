@@ -35,7 +35,10 @@ pipeline {
     }
     post {
         always {
-            junit 'cppcheck.xml'
+            junit(
+        allowEmptyResults: true,
+        testResults: '**/test-reports/*.xml'
+      )
         }
     }
 }
