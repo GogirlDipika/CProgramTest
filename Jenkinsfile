@@ -35,7 +35,7 @@ pipeline {
     }
     post {
         always {
-            junit 'cppcheck.xml'
+            publishCppCheck(pattern:'cppcheck.xml')
         }
     }
 }
