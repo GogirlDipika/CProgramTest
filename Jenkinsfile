@@ -27,6 +27,17 @@ pipeline {
                 bat 'Sonarproject.exe'
             }
         }
+        stage('Cppcheck') {
+            steps {
+                bat 'cppcheck --enable=all --xml . 2> cppcheck.xml'
+            }
+        }
+    }
+    post {
+        always {
+            junit 'cppcheck.xml'
+        }
+    }
     }
 }
 
