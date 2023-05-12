@@ -29,13 +29,8 @@ pipeline {
         }
         stage('Cppcheck') {
             steps {
-                bat 'cppcheck --enable=all --xml . 2> cppcheck.xml'
+                bat 'cppcheck --platform=win64 --enable=all --xml . 2> cppcheck.xml'
             }
-        }
-    }
-    post {
-        always {
-            publishCppCheck(pattern:'cppcheck.xml')
         }
     }
 }
