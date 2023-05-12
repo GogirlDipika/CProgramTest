@@ -32,10 +32,10 @@ pipeline {
                 bat 'cppcheck --platform=win64 --inconclusive --enable=all --xml . 2> cppcheck.xml'
             }
         }
-        stage('CppcheckResult') {
-            steps {
-                scanForIssues tool: cppCheck(pattern: 'cppcheck.xml')
-            }
+    }
+    post {
+        always {
+            junit 'cppcheck.xml'
         }
     }
 }
