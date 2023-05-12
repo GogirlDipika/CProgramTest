@@ -38,7 +38,6 @@ pipeline {
             junit 'cppcheck.xml'
         }
     }
-    }
 }
 
        
