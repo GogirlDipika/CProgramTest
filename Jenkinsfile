@@ -1,7 +1,3 @@
-
-
-
-
 pipeline {
     agent any
     
@@ -22,17 +18,19 @@ pipeline {
                 bat 'cppcheck --platform=win64 --inconclusive --enable=all --xml-version=2 --xml cppcheck.xml'
             }
         }
-        stage ('Quality gate') {
+        stage('Quality gate') {
             steps {
-                sleep 10
-                def qg = readFile('cppcheck.xml')
-                def errors = qg.scanFor('//error').size()
-                def warnings = qg.scanFor('//warning').size()
+				script{
+					sleep 10
+					def qg = readFile('cppcheck.xml')
+					def errors = qg.scanFor('//error').size()
+					def warnings = qg.scanFor('//warning').size()
 
-                if (errors > 0 || warnings > 0) {
-                    error "Pipeline aborted due to quality gate failure: ${errors} errors and ${warnings} warnings"
-                }
-            }
+					if (errors > 0 || warnings > 0) {
+						error "Pipeline aborted due to quality gate failure: ${errors} errors and ${warnings} warnings"
+					}
+				}
+			}
         }
     }
     post {
@@ -41,8 +39,3 @@ pipeline {
         }
     }
 }
-
-       
-
-
-
