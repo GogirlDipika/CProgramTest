@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Cppcheck') {
             steps {
-                bat 'cppcheck --platform=win64 --inconclusive --enable=all --xml . 2> cppcheck.xml'
+                bat 'cppcheck --platform=win64 --inconclusive --enable=all --check-config --xml-version=2 --xml --output-file=cppcheck.xml --config=myconfig.cfg'
             }
         }
     }
