@@ -32,6 +32,9 @@ pipeline {
 
                     def errorCount = errors.size()
                     def warningCount = warnings.size()
+                    
+                    echo "The number of errors is ${errorCount}"
+                    echo "The number of warnings is ${warningCount}"
 
                     // Access elements in the XML document
                     //def errorCount = xml.@errors.toInteger()
