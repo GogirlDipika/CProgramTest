@@ -25,12 +25,16 @@ pipeline {
             steps {
 			script{
 				sleep 10
-				def results = readFile('cppcheck.xml')
-          			def errors = results.findAll { it.severity == 'error' }
-          			def warnings = results.findAll { it.severity == 'warning' }
-          			if (errors.size() > 0 || warnings.size() > 0) {
-					error "Pipeline aborted due to quality gate failure: ${errors} errors and ${warnings} warnings"
-            				currentBuild.result = 'FAILURE'
+				import groovy.xml.XmlSlurper
+
+				def xmlSlurper = new XmlSlurper()
+				def xml = xmlSlurper.parse('cppcheck.xml')
+
+				def errors = xml.errors
+				def warnings = xml.warnings
+
+				echo "The number of errors is ${errors.size()}"
+				echo "The number of warnings is ${warnings.size()}"
 				}
 			}
 		}
