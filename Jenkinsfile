@@ -26,9 +26,15 @@ pipeline {
 
                     // Parse XML string using XmlSlurper
                     def xml = new XmlSlurper().parseText(xmlString)
+                    
+                    def errors = xml.errors
+                    def warnings = xml.warnings
+
+                    def errorCount = errors.size()
+                    def warningCount = warnings.size()
 
                     // Access elements in the XML document
-                    def errorCount = xml.@errors.toInteger()
+                    //def errorCount = xml.@errors.toInteger()
                     //def warningCount = xml.@warnings.toInteger()
 
                     // Quality Gate criteria
