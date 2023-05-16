@@ -38,7 +38,7 @@ pipeline {
                     //def warningCount = xml.@warnings.toInteger()
 
                     // Quality Gate criteria
-                    def maxErrors = 5
+                    def maxErrors = 2
                     //def maxWarnings = 10
 
                     // Check if quality gate conditions are met
