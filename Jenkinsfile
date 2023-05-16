@@ -30,7 +30,8 @@ pipeline {
                     def errors = xml.errors
                     def warnings = xml.warnings
 
-                    def errorCount = errors.size()
+                    //def errorCount = errors.size()
+                    def errorCount = xml.errors.error.size()
                     def warningCount = warnings.size()
                     
                     echo "The number of errors is ${errorCount}"
