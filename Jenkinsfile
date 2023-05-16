@@ -20,8 +20,10 @@ pipeline {
         }
         stage('Read cppcheck.xml') {
             steps {
-                def xml = readFile('cppcheck.xml')
+                script{
+                def xml = readFile 'cppcheck.xml'
                 echo xml.errors
+                    }
             }
         }
     }
