@@ -21,7 +21,7 @@ pipeline {
     }
     post {
         always {
-            publishCppcheck pattern:'cppcheck.xml', enabled: true, threshold: 4, ignoreBlankFiles: true
+            publishCppcheck pattern:'cppcheck.xml'
         }
     }
 }
