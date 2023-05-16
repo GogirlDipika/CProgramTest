@@ -16,6 +16,9 @@ pipeline {
         stage('Cppcheck') {
             steps {
                 bat 'cppcheck --platform=win64 --inconclusive --enable=all --xml-version=2 --xml cppcheck.xml'
+		    
+		// Publish the results using the CppcheckPublisher plugin
+        	publishCppcheck pattern: 'cppcheck.xml', enabled: true, threshold: 4, ignoreBlankFiles: true
             }
         }
         stage('Quality gate') {
