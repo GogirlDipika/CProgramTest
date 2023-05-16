@@ -20,17 +20,17 @@ pipeline {
         }
         stage('Quality gate') {
             steps {
-				script{
-					sleep 10
-					def qg = readFile('cppcheck.xml')
-					def errors = qg.scanFor('//error').size()
-					def warnings = qg.scanFor('//warning').size()
-
-					if (errors > 0 || warnings > 0) {
-						error "Pipeline aborted due to quality gate failure: ${errors} errors and ${warnings} warnings"
-					}
+			script{
+				sleep 10
+				def results = readFile('cppcheck.xml')
+          			def errors = results.findAll { it.severity == 'error' }
+          			def warnings = results.findAll { it.severity == 'warning' }
+          			if (errors.size() > 0 || warnings.size() > 0) {
+					error "Pipeline aborted due to quality gate failure: ${errors} errors and ${warnings} warnings"
+            				currentBuild.result = 'FAILURE'
 				}
 			}
+		}
         }
     }
     post {
