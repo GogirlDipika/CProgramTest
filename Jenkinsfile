@@ -18,6 +18,12 @@ pipeline {
                 bat 'cppcheck --platform=win64 --inconclusive --enable=all --xml-version=2 --xml cppcheck.xml'
             }
         }
+        stage('Read cppcheck.xml') {
+            steps {
+                def xml = readFile('cppcheck.xml')
+                echo xml.errors
+            }
+        }
     }
     post {
         always {
