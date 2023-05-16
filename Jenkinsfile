@@ -21,8 +21,18 @@ pipeline {
         stage('Read cppcheck.xml') {
             steps {
                 script{
-                def xml = readFile 'cppcheck.xml'
-                echo xml.errors
+                // Read Cppcheck XML file into a string
+                    def xmlString = readFile 'cppcheck.xml'
+
+                    // Parse XML string using XmlSlurper
+                    def xml = new XmlSlurper().parseText(xmlString)
+
+                    // Access elements in the XML document
+                    def errorCount = xml.@errors.toInteger()
+                    def warningCount = xml.@warnings.toInteger()
+
+                    // Print out results
+                    echo "Cppcheck found ${errorCount} errors and ${warningCount} warnings."
                     }
             }
         }
