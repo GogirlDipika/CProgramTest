@@ -27,11 +27,11 @@ pipeline {
                     // Parse XML string using XmlSlurper
                     def xml = new XmlSlurper().parseText(xmlString)
                     
-                    def errors = xml.errors
+                    def errors = xml.errors.error
                     def warnings = xml.warnings
 
                     //def errorCount = errors.size()
-                    def errorCount = xml.errors.error.size()
+                    def errorCount = errors.size()
                     def warningCount = warnings.size()
                     
                     echo "The number of errors is ${errorCount}"
