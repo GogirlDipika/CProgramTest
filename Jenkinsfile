@@ -1,3 +1,5 @@
+import groovy.xml.XmlSlurper
+
 pipeline {
     agent any
     
@@ -25,7 +27,6 @@ pipeline {
             steps {
 			script{
 				sleep 10
-				import groovy.xml.XmlSlurper
 
 				def xmlSlurper = new XmlSlurper()
 				def xml = xmlSlurper.parse('cppcheck.xml')
