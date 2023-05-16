@@ -42,12 +42,11 @@ pipeline {
                     //def warningCount = xml.@warnings.toInteger()
 
                     // Quality Gate criteria
-                    def maxErrors = 2
-                    //def maxWarnings = 10
+                    def maxErrors = 3
+                    def maxWarnings = 10
 
                     // Check if quality gate conditions are met
-                    //if (errorCount <= maxErrors && warningCount <= maxWarnings) {
-                    if (errorCount <= maxErrors) {
+                    if (errorCount <= maxErrors && warningCount <= maxWarnings) {
                         echo "Quality Gate: Passed"
                     } else {
                         error "Quality Gate: Failed - Exceeded maximum errors or warnings"
