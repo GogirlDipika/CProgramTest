@@ -18,10 +18,10 @@ pipeline {
                 bat 'cppcheck --platform=win64 --inconclusive --enable=all --xml-version=2 --xml cppcheck.xml'
             }
         }
-        stage('Read cppcheck.xml') {
+        stage('Quality Gate') {
             steps {
                 script{
-                // Read Cppcheck XML file into a string
+                    // Read Cppcheck XML file into a string
                     def xmlString = readFile 'cppcheck.xml'
 
                     // Parse XML string using XmlSlurper
@@ -29,9 +29,19 @@ pipeline {
 
                     // Access elements in the XML document
                     def errorCount = xml.@errors.toInteger()
+                    //def warningCount = xml.@warnings.toInteger()
 
-                    // Print out results
-                    echo "Cppcheck found ${errorCount} errors."
+                    // Quality Gate criteria
+                    def maxErrors = 5
+                    //def maxWarnings = 10
+
+                    // Check if quality gate conditions are met
+                    //if (errorCount <= maxErrors && warningCount <= maxWarnings) {
+                    if (errorCount <= maxErrors) {
+                        echo "Quality Gate: Passed"
+                    } else {
+                        error "Quality Gate: Failed - Exceeded maximum errors or warnings"
+                    }
                     }
             }
         }
