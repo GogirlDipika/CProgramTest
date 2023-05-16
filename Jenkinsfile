@@ -29,10 +29,9 @@ pipeline {
 
                     // Access elements in the XML document
                     def errorCount = xml.@errors.toInteger()
-                    def warningCount = xml.@warnings.toInteger()
 
                     // Print out results
-                    echo "Cppcheck found ${errorCount} errors and ${warningCount} warnings."
+                    echo "Cppcheck found ${errorCount} errors."
                     }
             }
         }
