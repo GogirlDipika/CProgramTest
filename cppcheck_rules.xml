@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <rule version="1">
- <pattern>if \( p \) { free \( p \) ; }</pattern>
+ <pattern>if \( \) { free \( \) ; }</pattern>
  <message>
   <id>redundantCondition</id>
   <severity>style</severity>
