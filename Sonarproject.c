@@ -22,3 +22,9 @@ int main() {
     free(str);
     return 0;
 }
+
+void f() {
+ if (p)
+ free(p);
+}
+
