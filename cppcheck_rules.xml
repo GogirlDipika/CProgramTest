@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <rule version="1">
- <pattern>if \( \) { free \( \) ; }</pattern>
+ <pattern><![CDATA[if (\([^()]*(?-1)*[^()]*\)) { free (\([^()]*(?-1)*[^()]*\)) ; }]]</pattern>
  <message>
   <id>redundantCondition</id>
   <severity>style</severity>
