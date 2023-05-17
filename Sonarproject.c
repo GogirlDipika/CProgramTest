@@ -20,6 +20,9 @@ int main() {
     {
     }
     free(str);
+     A:
+        a();
+    goto A;     // Considered Harmful
     return 0;
 }
 
