@@ -24,7 +24,7 @@ int main() {
 }
 
 void f() {
- if (x)
- free(x);
+ if (p)
+ free(p);
 }
 
