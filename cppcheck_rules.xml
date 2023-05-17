@@ -16,11 +16,18 @@
     </message>
 </rule>
 <rule>
-    <tokenlist>normal</tokenlist>
     <pattern>goto</pattern>
     <message>
         <id>GotoStatement</id>
         <severity>style</severity>
         <summary>CustomRule:Goto considered harmful.</summary>
     </message>
+</rule>
+<rule>
+ <pattern>^([a-zA-Z0-9_]+)\s+(.*)$</pattern>
+ <message>
+  <id>ProperSpacing</id>
+  <severity>style</severity>
+  <summary>CustomRule:This rule checks for proper spacing in code.</summary>
+ </message>
 </rule>
