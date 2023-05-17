@@ -18,15 +18,6 @@ pipeline {
                 bat 'cppcheck  . --platform=win64 --inconclusive --enable=all --rule-file=cppcheck_rules.xml --xml-version=2 --xml --output-file=cppcheck.xml'
             }
         }
-        stage('Publish Cppcheck report') {
-            steps {
-                // Archive cppcheck results as a build artifact
-                archiveArtifacts artifacts: 'cppcheck.xml', fingerprint: true
-                
-                // Publish cppcheck report in Jenkins
-                publishCppcheck pattern: 'cppcheck.xml', ruleSets: [[pattern: 'cppcheck_rules.xml']]
-            }
-        }
         stage('Quality Gate') {
             steps {
                 script{
