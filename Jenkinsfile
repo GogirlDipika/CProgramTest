@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Cppcheck') {
             steps {
-                bat 'cppcheck --platform=win64 --inconclusive --enable=all --xml-version=2 --xml cppcheck.xml'
+                bat 'cppcheck Sonarproject.c --platform=win64 --inconclusive --enable=all --xml-version=2 --xml --output-file=cppcheck.xml'
             }
         }
         stage('Quality Gate') {
