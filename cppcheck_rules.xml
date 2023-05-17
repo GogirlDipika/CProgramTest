@@ -2,8 +2,8 @@
 <rule version="1">
  <pattern>if \( p \) { free \( p \) ; }</pattern>
  <message>
- <id>redundantCondition</id>
- <severity>style</severity>
- <summary>Redundant condition. It is valid to free a NULL pointer.</summary>
+  <id>redundantCondition</id>
+  <severity>style</severity>
+  <summary>Redundant condition. It is valid to free a NULL pointer.</summary>
  </message>
 </rule>
