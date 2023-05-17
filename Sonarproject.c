@@ -3,6 +3,7 @@
 
 int main() {
     int c;
+    double pi = 3.14159;
     char var;//unused variable
     //to check for bug and code smell
     //memory allocation
