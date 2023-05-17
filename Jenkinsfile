@@ -18,6 +18,34 @@ pipeline {
                 bat 'cppcheck  . --platform=win64 --inconclusive --enable=all --xml-version=2 --xml --output-file=cppcheck.xml'
             }
         }
+        stage('Lint') {
+      steps {
+        sh 'echo "Installing cppcheck..."'
+        sh 'sudo apt-get install cppcheck'
+        sh 'echo "Configuring cppcheck..."'
+        sh '''
+          echo "-enable=all" > cppcheck.cfg
+          echo "-std=c++11" >> cppcheck.cfg
+          echo "-Iinclude" >> cppcheck.cfg
+          echo "-j4" >> cppcheck.cfg
+          echo "-xml" >> cppcheck.cfg
+          echo "-o cppcheck.xml" >> cppcheck.cfg
+          echo "Adding linter rules..." >> cppcheck.cfg
+          echo "-enable=unusedFunction" >> cppcheck.cfg
+          echo "-enable=unusedVariable" >> cppcheck.cfg
+          echo "-enable=missingInclude" >> cppcheck.cfg
+        '''
+        sh 'echo "Running cppcheck..."'
+        sh 'cppcheck --config-file cppcheck.cfg .'
+        sh 'echo "Collecting cppcheck results..."'
+        sh 'cat cppcheck.xml'
+        sh 'echo "Failing the pipeline if cppcheck finds any errors or warnings..."'
+        if [[ $(cat cppcheck.xml | grep -c 'ERROR') -gt 0 ]]; then
+          sh 'echo "Found errors in cppcheck output. Failing the pipeline."'
+          error 'Found errors in cppcheck output. Failing the pipeline.'
+        fi
+      }
+    }
         stage('Quality Gate') {
             steps {
                 script{
@@ -55,6 +83,8 @@ pipeline {
             }
         }
     }
+    
+   
     post {
         always {
             publishCppcheck pattern:'cppcheck.xml'
