@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rules>
-  <!-- Custom rule 1: UnusedVariable -->
-  <rule id="unusedVariable" severity="style" verbose="true">
-    <pattern>Variable '{0}' is assigned a value that is never used.</pattern>
-    <example><![CDATA[
-        int x = 5; // Unused variable
-        int y = 10; // Unused variable
-    ]]></example>
+<ruleset name="Custom Rules">
+  <rule>
+    <name>Proper Spacing</name>
+    <description>This rule checks for proper spacing in code.</description>
+    <pattern>^([a-zA-Z0-9_]+)\s+(.*)$</pattern>
+    <severity>warning</severity>
   </rule>
-
-  <!-- Custom rule 2: MagicNumber -->
-  <rule id="magicNumber" severity="warning" verbose="true">
-    <pattern>Magic number {0} found.</pattern>
-    <example><![CDATA[
-        int value = 42; // Magic number
-        double pi = 3.14159; // Magic number
-    ]]></example>
-  </rule>
-
-  <!-- Add more custom rules here -->
-</rules>
+  <rule>
+    <tokenlist>normal</tokenlist>
+    <pattern><![CDATA[if (\([^()]*(?-1)*[^()]*\)) { }]]></pattern>
+    <message>
+        <id>EmptyIfStatement</id>
+        <severity>style</severity>
+        <summary>Empty if statement.</summary>
+    </message>
+</rule>
+</ruleset>
