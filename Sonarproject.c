@@ -11,7 +11,7 @@ int main() {
     //soncloud testin
     //how to check c programming
     char* str = (char*)malloc(10);
-    if (str != NULL) {
+    if      (       str != NULL) {
         printf("Enter a string: ");
         scanf_s("%s", str);
         printf("You entered: %s\n", str);
