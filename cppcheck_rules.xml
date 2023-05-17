@@ -4,7 +4,7 @@
  <message>
   <id>redundantCondition</id>
   <severity>style</severity>
-  <summary>Redundant condition. It is valid to free a NULL pointer.</summary>
+  <summary>CustomRule:Redundant condition. It is valid to free a NULL pointer.</summary>
  </message>
 </rule>
 <rule>
@@ -12,7 +12,7 @@
     <message>
         <id>EmptyIfStatement</id>
         <severity>style</severity>
-        <summary>Empty if statement.</summary>
+        <summary>CustomRule:Empty if statement.</summary>
     </message>
 </rule>
 <rule>
@@ -21,6 +21,6 @@
     <message>
         <id>GotoStatement</id>
         <severity>style</severity>
-        <summary>Goto considered harmful.</summary>
+        <summary>CustomRule:Goto considered harmful.</summary>
     </message>
 </rule>
