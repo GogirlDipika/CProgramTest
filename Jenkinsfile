@@ -24,7 +24,7 @@ pipeline {
                 archiveArtifacts artifacts: 'cppcheck.xml', fingerprint: true
                 
                 // Publish cppcheck report in Jenkins
-                cppcheckPublisher pattern: 'cppcheck.xml', ruleSets: [[pattern: 'cppcheck_rules.xml']]
+                publishCppcheck pattern: 'cppcheck.xml', ruleSets: [[pattern: 'cppcheck_rules.xml']]
             }
         }
         stage('Quality Gate') {
