@@ -7,3 +7,11 @@
   <summary>Redundant condition. It is valid to free a NULL pointer.</summary>
  </message>
 </rule>
+<rule>
+    <pattern><![CDATA[if (\([^()]*(?-1)*[^()]*\)) { }]]></pattern>
+    <message>
+        <id>EmptyIfStatement</id>
+        <severity>style</severity>
+        <summary>Empty if statement.</summary>
+    </message>
+</rule>
