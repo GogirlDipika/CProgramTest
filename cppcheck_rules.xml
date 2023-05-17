@@ -14,5 +14,41 @@
         <severity>style</severity>
         <summary>Empty if statement.</summary>
     </message>
-</rule>
+  </rule>
+	<rule>
+		<tokenlist>normal</tokenlist>
+		<pattern><![CDATA[! !]]></pattern>
+		<message>
+			<id>DoubleNegative</id>
+			<severity>style</severity>
+			<summary>Double negative is always positive.</summary>
+		</message>
+	</rule>
+	<rule>
+		<tokenlist>normal</tokenlist>
+		<pattern><![CDATA[~ ~]]></pattern>
+		<message>
+			<id>DoubleNegative</id>
+			<severity>style</severity>
+			<summary>Double negative is always positive.</summary>
+		</message>
+	</rule>
+	<rule>
+		<tokenlist>normal</tokenlist>
+		<pattern><![CDATA[! \( !]]></pattern>
+		<message>
+			<id>DoubleNegative</id>
+			<severity>style</severity>
+			<summary>Double negative is always positive.</summary>
+		</message>
+	</rule>
+	<rule>
+		<tokenlist>normal</tokenlist>
+		<pattern><![CDATA[~ \( ~]]></pattern>
+		<message>
+			<id>DoubleNegative</id>
+			<severity>style</severity>
+			<summary>Double negative is always positive.</summary>
+		</message>
+	</rule>
 </ruleset>
