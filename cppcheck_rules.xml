@@ -1,54 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ruleset name="Custom Rules">
-  <rule>
-    <name>Proper Spacing</name>
-    <description>This rule checks for proper spacing in code.</description>
-    <pattern>^([a-zA-Z0-9_]+)\s+(.*)$</pattern>
-    <severity>warning</severity>
-  </rule>
-  <rule>
-    <tokenlist>normal</tokenlist>
-    <pattern><![CDATA[if (\([^()]*(?-1)*[^()]*\)) { }]]></pattern>
-    <message>
-        <id>EmptyIfStatement</id>
-        <severity>style</severity>
-        <summary>Empty if statement.</summary>
-    </message>
-  </rule>
-	<rule>
-		<tokenlist>normal</tokenlist>
-		<pattern><![CDATA[! !]]></pattern>
-		<message>
-			<id>DoubleNegative</id>
-			<severity>style</severity>
-			<summary>Double negative is always positive.</summary>
-		</message>
-	</rule>
-	<rule>
-		<tokenlist>normal</tokenlist>
-		<pattern><![CDATA[~ ~]]></pattern>
-		<message>
-			<id>DoubleNegative</id>
-			<severity>style</severity>
-			<summary>Double negative is always positive.</summary>
-		</message>
-	</rule>
-	<rule>
-		<tokenlist>normal</tokenlist>
-		<pattern><![CDATA[! \( !]]></pattern>
-		<message>
-			<id>DoubleNegative</id>
-			<severity>style</severity>
-			<summary>Double negative is always positive.</summary>
-		</message>
-	</rule>
-	<rule>
-		<tokenlist>normal</tokenlist>
-		<pattern><![CDATA[~ \( ~]]></pattern>
-		<message>
-			<id>DoubleNegative</id>
-			<severity>style</severity>
-			<summary>Double negative is always positive.</summary>
-		</message>
-	</rule>
-</ruleset>
+<?xml version="1.0"?>
+<rule version="1">
+ <pattern>if \( p \) { free \( p \) ; }</pattern>
+ <message>
+ <id>redundantCondition</id>
+ <severity>style</severity>
+ <summary>Redundant condition. It is valid to free a NULL pointer.</summary>
+ </message>
+</rule>
