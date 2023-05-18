@@ -29,6 +29,6 @@
     <message>
         <id>AvoidBranchingStatementAsLastInLoop</id>
         <severity>style</severity>
-        <summary>Branching statement as the last statement inside a loop is very confusing.</summary>
+        <summary>CustomRule:Branching statement as the last statement inside a loop is very confusing.</summary>
     </message>
 </rule>
