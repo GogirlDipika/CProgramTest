@@ -32,6 +32,16 @@
         <summary>CustomRule:Branching statement as the last statement inside a loop is very confusing.</summary>
     </message>
 </rule>
+<rule name="Additional Spaces" message="Additional spaces found." severity="warning">
+ <match>
+  <regex>/\s{2,}|\t/</regex>
+ </match>
+</rule>
+<rule name="No Spaces" message="No spaces found." severity="warning">
+ <match>
+  <regex>/^\S+$</regex>
+ </match>
+</rule>
 <rule>
     <pattern><![CDATA[/^\S+$/]]></pattern>
     <message>
