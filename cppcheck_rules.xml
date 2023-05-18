@@ -32,3 +32,19 @@
         <summary>CustomRule:Branching statement as the last statement inside a loop is very confusing.</summary>
     </message>
 </rule>
+<rule>
+    <pattern>/^\S+$/</pattern>
+    <message>
+        <id>No Spaces</id>
+        <severity>style</severity>
+        <summary>CustomRule:No Space found.</summary>
+    </message>
+</rule>
+<rule>
+    <pattern>/\s{2,}</pattern>
+    <message>
+        <id>Additional Spaces</id>
+        <severity>style</severity>
+        <summary>CustomRule:Additional spaces found.</summary>
+    </message>
+</rule>
