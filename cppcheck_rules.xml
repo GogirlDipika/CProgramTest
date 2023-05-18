@@ -40,3 +40,11 @@
     <summary>CustomRule:Extra space.</summary>
   </message>
 </rule>
+<rule>
+  <pattern><![CDATA[(?<!\w)( )(?!\w)]]></pattern>
+  <message>
+    <id>ExtraSpaceInRoundBracket</id>
+    <severity>style</severity>
+    <summary>CustomRule:Extra space in round bracket.</summary>
+  </message>
+</rule>
