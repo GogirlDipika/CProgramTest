@@ -40,29 +40,3 @@
     <summary>CustomRule:Extra space.</summary>
   </message>
 </rule>
-<rule name="Additional Spaces" message="Additional spaces found." severity="warning">
- <match>
-  <regex>/\s{2,}|\t/</regex>
- </match>
-</rule>
-<rule name="No Spaces" message="No spaces found." severity="warning">
- <match>
-  <regex>/^\S+$</regex>
- </match>
-</rule>
-<rule>
-    <pattern><![CDATA[/^\S+$/]]></pattern>
-    <message>
-        <id>No Spaces</id>
-        <severity>style</severity>
-        <summary>CustomRule:No Space found.</summary>
-    </message>
-</rule>
-<rule>
-    <pattern><![CDATA[/\s{2,}]]></pattern>
-    <message>
-        <id>Additional Spaces</id>
-        <severity>style</severity>
-        <summary>CustomRule:Additional spaces found.</summary>
-    </message>
-</rule>
