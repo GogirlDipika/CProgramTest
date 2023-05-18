@@ -33,11 +33,7 @@
     </message>
 </rule>
 <rule>
-  <pattern><![CDATA[
-    (?<!\w)                   # Assert that we are not at the beginning of a word.
-    ( )                       # Match a single space.
-    (?!\w)                   # Assert that we are not at the beginning of a word.
-  ]]></pattern>
+  <pattern><![CDATA[(?<!\w)( )(?!\w)]]></pattern>
   <message>
     <id>ExtraSpace</id>
     <severity>style</severity>
