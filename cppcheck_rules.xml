@@ -24,10 +24,11 @@
     </message>
 </rule>
 <rule>
- <pattern>^([a-zA-Z0-9_]+)\s+(.*)$</pattern>
- <message>
-  <id>ProperSpacing</id>
-  <severity>style</severity>
-  <summary>CustomRule:This rule checks for proper spacing in code.</summary>
- </message>
+    <tokenlist>normal</tokenlist>
+    <pattern><![CDATA[(for|while) (\([^()]*(?-1)*[^()]*\)) { (?:[^{}]*({[^{}]*(?-1)*[^{}]*})[^{}]*)*? (break|continue|return) [^;]*; }]]></pattern>
+    <message>
+        <id>AvoidBranchingStatementAsLastInLoop</id>
+        <severity>style</severity>
+        <summary>Branching statement as the last statement inside a loop is very confusing.</summary>
+    </message>
 </rule>
