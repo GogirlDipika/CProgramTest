@@ -33,7 +33,7 @@
     </message>
 </rule>
 <rule>
-    <pattern>/^\S+$/</pattern>
+    <pattern><![CDATA[/^\S+$/]]></pattern>
     <message>
         <id>No Spaces</id>
         <severity>style</severity>
@@ -41,7 +41,7 @@
     </message>
 </rule>
 <rule>
-    <pattern>/\s{2,}</pattern>
+    <pattern><![CDATA[/\s{2,}]]></pattern>
     <message>
         <id>Additional Spaces</id>
         <severity>style</severity>
