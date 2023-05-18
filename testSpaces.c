@@ -8,6 +8,10 @@ int main() {
   {
     // This line has an extra space after the closing curly brace.
   }
+  
+  if (i == 5)
+  {
+  }
 
   return 0;
 }
