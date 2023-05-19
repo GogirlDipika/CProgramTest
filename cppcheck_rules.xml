@@ -56,3 +56,11 @@
     <summary>CustomRule:Two spaces or more.</summary>
   </message>
 </rule>
+<rule>
+  <pattern><![CDATA[(?<!\w)\s{2,}(?!\w)]]></pattern>
+  <message>
+    <id>Morethan2Space</id>
+    <severity>style</severity>
+    <summary>CustomRule:2+ Extra space.</summary>
+  </message>
+</rule>
