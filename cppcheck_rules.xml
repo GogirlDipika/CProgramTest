@@ -48,3 +48,11 @@
     <summary>CustomRule:Extra space before or after equals sign.</summary>
   </message>
 </rule>
+<rule>
+  <pattern><![CDATA[(?<=[^ ])( ){2,}]]></pattern>
+  <message>
+    <id>TwoSpacesOrMore</id>
+    <severity>style</severity>
+    <summary>CustomRule:Two spaces or more.</summary>
+  </message>
+</rule>
