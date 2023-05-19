@@ -32,38 +32,6 @@
     </message>
 </rule>
 <rule>
-  <pattern><![CDATA[(?<!\w)( )(?!\w)]]></pattern>
-  <message>
-    <id>ExtraSpace</id>
-    <severity>style</severity>
-    <summary>CustomRule:Extra space.</summary>
-  </message>
-</rule>
-<rule>
-  <pattern><![CDATA[(?<!\w)( )+(=|==)( )+(?!\w)]]></pattern>
-  <message>
-    <id>ExtraSpaceBeforeOrAfterEqualsSign</id>
-    <severity>style</severity>
-    <summary>CustomRule:Extra space before or after equals sign.</summary>
-  </message>
-</rule>
-<rule>
-  <pattern><![CDATA[(?<=[^ ])( ){2,}]]></pattern>
-  <message>
-    <id>TwoSpacesOrMore</id>
-    <severity>style</severity>
-    <summary>CustomRule:Two spaces or more.</summary>
-  </message>
-</rule>
-<rule>
-  <pattern>/(\s){2,}/></pattern>
-  <message>
-    <id>Morethan2Space</id>
-    <severity>style</severity>
-    <summary>CustomRule:2+ Extra space.</summary>
-  </message>
-</rule>
-<rule>
   <pattern><![CDATA[\b\s{2,}\b]]></pattern>
   <message>
     <id>ConsecutiveSpaces</id>
