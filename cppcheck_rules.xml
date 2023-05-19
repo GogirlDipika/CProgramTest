@@ -63,3 +63,11 @@
     <summary>CustomRule:2+ Extra space.</summary>
   </message>
 </rule>
+<rule>
+  <pattern><![CDATA[\b\s{2,}\b]]></pattern>
+  <message>
+    <id>ConsecutiveSpaces</id>
+    <severity>style</severity>
+    <summary>CustomRule: Consecutive spaces found.</summary>
+  </message>
+</rule>
