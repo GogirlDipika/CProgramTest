@@ -41,7 +41,7 @@
   </message>
 </rule>
 <rule>
-  <pattern><![CDATA[(( )+]]></pattern>
+  <pattern><![CDATA[(?<!\w)( )+(=|==)( )+(?!\w)]]></pattern>
   <message>
     <id>ExtraSpaceBeforeOrAfterEqualsSign</id>
     <severity>style</severity>
