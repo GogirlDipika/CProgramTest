@@ -57,7 +57,7 @@
   </message>
 </rule>
 <rule>
-  <pattern><![CDATA[(?<!\w)\s{2,}(?!\w)]]></pattern>
+  <pattern><![CDATA[(?<!\w)/(\s){2,}/(?!\w)]]></pattern>
   <message>
     <id>Morethan2Space</id>
     <severity>style</severity>
