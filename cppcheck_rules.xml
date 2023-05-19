@@ -24,7 +24,6 @@
     </message>
 </rule>
 <rule>
-    <tokenlist>normal</tokenlist>
     <pattern><![CDATA[(for|while) (\([^()]*(?-1)*[^()]*\)) { (?:[^{}]*({[^{}]*(?-1)*[^{}]*})[^{}]*)*? (break|continue|return) [^;]*; }]]></pattern>
     <message>
         <id>AvoidBranchingStatementAsLastInLoop</id>
