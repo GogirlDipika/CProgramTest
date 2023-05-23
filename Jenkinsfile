@@ -52,16 +52,14 @@ pipeline {
                         //error "Quality Gate: Failed - Exceeded maximum errors or warnings"
                     }
                 }
-             stage('Clang format') {
-                steps {
-                        bat 'clang-format -style=llvm -i file1.c'
-                    }
             }
+        }
+        stage('Clang format') {
+            steps {
+                bat 'clang-format -style=llvm -i file1.c'
             }
         }
     }
-    
-   
     post {
         always {
             publishCppcheck pattern:'cppcheck.xml'
