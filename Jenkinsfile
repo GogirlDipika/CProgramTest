@@ -56,7 +56,7 @@ pipeline {
         }
         stage('Clang format') {
             steps {
-                bat 'clang-format -style=llvm -i file1.c'
+                bat 'clang-format -i *.c'
             }
         }
     }
