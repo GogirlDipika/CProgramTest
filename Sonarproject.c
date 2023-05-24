@@ -25,7 +25,7 @@ int main() {
     goto A;     // Considered Harmful
     
     
-    for (int i = 0; i < 10; i++)
+    for (int i =                                                   0; i < 10; i++)
     {
         if (foo(i))
         {
