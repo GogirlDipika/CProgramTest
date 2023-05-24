@@ -56,7 +56,11 @@ pipeline {
         }
         stage('Clang format') {
             steps {
+                println "Checking suggestions for formatting..."
+                bat "clang-format --style=llvm --dry-run *.c"
+                println "Reformatting started..."
                 bat 'clang-format -i *.c'
+                println "Reformatting done."
             }
         }
     }
@@ -66,3 +70,7 @@ pipeline {
         }
     }
 }
+
+
+// clang-format -i *.c
+// clang-format --style=llvm --dry-run *.c
