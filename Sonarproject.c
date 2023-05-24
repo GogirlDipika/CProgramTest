@@ -16,7 +16,7 @@ int main() {
         scanf_s("%s", str);
         printf("You entered: %s\n", str);
     }
-    if (pi == 3.14159)                  // empty if statement
+    if (pi ==                           3.14159)                  // empty if statement
     {
     }
     free(str);
