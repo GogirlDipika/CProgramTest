@@ -23,7 +23,9 @@ pipeline {
                 script{
                     // Read Cppcheck XML file into a string
                     def xmlString = readFile 'cppcheck.xml'
-
+                    
+                    echo xmlString
+                    
                     // Parse XML string using XmlSlurper
                     def xml = new XmlSlurper().parseText(xmlString)
                     
@@ -40,6 +42,11 @@ pipeline {
                     // Access elements in the XML document
                     //def errorCount = xml.@errors.toInteger()
                     //def warningCount = xml.@warnings.toInteger()
+                    
+                    //Create the update xml string
+                    def updatedXml = groovy.xml.XmlUtil.serialize(xml)
+                    //Write the content back
+                    file.write(updatedXml)
 
                     // Quality Gate criteria
                     def maxErrors = 3
