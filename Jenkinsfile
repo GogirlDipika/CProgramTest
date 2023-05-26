@@ -23,9 +23,7 @@ pipeline {
                 script{
                     // Read Cppcheck XML file into a string
                     def xmlString = readFile 'cppcheck.xml'
-                    
-                    // echo xmlString
-                    
+
                     // Parse XML string using XmlSlurper
                     def xml = new XmlSlurper().parseText(xmlString)
                     
