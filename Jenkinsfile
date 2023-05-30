@@ -43,8 +43,8 @@ pipeline {
                     def articles = new XmlParser().parse(xmlFile)
 
                     echo "Adding node to xml"
-                    def errorNode = new NodeBuilder().error(id: 'TestingXMLEdit' severity:'Testseverity' msg:'Test msg' verbose:'Test Verbose' cwe:'561' inconclusive:'true' file0:"Sonarproject.c" {
-                    location(file:"Sonarproject.c" line:"28" column:"5")
+                    def errorNode = new NodeBuilder().error(id: 'TestingXMLEdit', severity:'Testseverity', msg:'Test msg', verbose:'Test Verbose', cwe:'561', inconclusive:'true', file0:"Sonarproject.c" {
+                    location(file:"Sonarproject.c", line:"28", column:"5")
                     }
                     errors.append(errorNode)
                     
