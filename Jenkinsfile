@@ -40,7 +40,8 @@ pipeline {
                     // Access elements in the XML document
                     //def errorCount = xml.@errors.toInteger()
                     //def warningCount = xml.@warnings.toInteger()
-                    def errors = new XmlParser().parse(xmlFile)
+                    echo "Reading xml"
+                    def errors = new XmlParser().parse(cppcheck.xml)
 
                     echo "Adding node to xml"
                     def errorNode = new NodeBuilder().error(id: 'TestingXMLEdit', severity:'Testseverity', msg:'Test msg', verbose:'Test Verbose', cwe:'561', inconclusive:'true', file0:"Sonarproject.c" {
