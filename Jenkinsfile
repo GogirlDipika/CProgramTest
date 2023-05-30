@@ -44,7 +44,7 @@ pipeline {
                     def errors = new XmlParser().parse(cppcheck.xml)
 
                     echo "Adding node to xml"
-                    def errorNode = new NodeBuilder().error(id: 'TestingXMLEdit', severity:'Testseverity', msg:'Test msg', verbose:'Test Verbose', cwe:'561', inconclusive:'true', file0:"Sonarproject.c" {
+                    def errorNode = new NodeBuilder().error(id: 'TestingXMLEdit', severity:'Testseverity', msg:'Test msg', verbose:'Test Verbose', cwe:'561', inconclusive:'true', file0:'Sonarproject.c') {
                     location(file:"Sonarproject.c", line:"28", column:"5")
                     }
                     errors.append(errorNode)
