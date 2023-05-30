@@ -41,10 +41,6 @@ pipeline {
                     //def errorCount = xml.@errors.toInteger()
                     //def warningCount = xml.@warnings.toInteger()
                     
-                    //Create the update xml string
-                    def updatedXml = groovy.xml.XmlUtil.serialize(xml)
-                    //Write the content back
-                    file.write(updatedXml)
 
                     // Quality Gate criteria
                     def maxErrors = 3
