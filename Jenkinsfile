@@ -41,13 +41,35 @@ pipeline {
                     //def errorCount = xml.@errors.toInteger()
                     //def warningCount = xml.@warnings.toInteger()
                     echo "Reading xml"
-                    def errorxml = new XmlParser().parse(cppcheck)
-
-                    echo "Adding node to xml"
-                    def errorNode = new NodeBuilder().error(id: 'TestingXMLEdit', severity:'Testseverity', msg:'Test msg', verbose:'Test Verbose', cwe:'561', inconclusive:'true', file0:'Sonarproject.c') {
-                    location(file:"Sonarproject.c", line:"28", column:"5")
-                    }
-                    errorxml.append(errorNode)
+                    // Read the content of cppcheck.xml
+                    def xmlContent = readFile('cppcheck.xml')
+                    
+                    // Parse the xml content
+                    def xml = new XmlSlurper().parseText(xmlContent)
+                    
+                    // Create a new error element
+                    def newError = xml.errors.appendNode('error', [
+                        id: 'newErrorId',
+                        severity: 'error',
+                        msg: 'This is a new error.',
+                        verbose: 'This is a new error.',
+                        cwe: '563',
+                        inconclusive: 'false',
+                        file0: 'Sonarproject.c'
+                    ])
+                    
+                    // Set the location for the new error
+                    newError.appendNode('location', [
+                        file: 'Sonarproject.c',
+                        line: '6',
+                        column: '3'
+                    ])
+                    
+                    // Write the updated xml content back to cppcheck.xml
+                    def updatedXmlContent = groovy.xml.XmlUtil.serialize(xml)
+                    writeFile file: 'cppcheck.xml', text: updatedXmlContent
+                    
+                    echo 'New error added to cppcheck.xml'
                     
                     // Quality Gate criteria
                     def maxErrors = 3
