@@ -41,13 +41,13 @@ pipeline {
                     //def errorCount = xml.@errors.toInteger()
                     //def warningCount = xml.@warnings.toInteger()
                     echo "Reading xml"
-                    def errors = new XmlParser().parse(cppcheck.xml)
+                    def errorxml = new XmlParser().parse(cppcheck.xml)
 
                     echo "Adding node to xml"
                     def errorNode = new NodeBuilder().error(id: 'TestingXMLEdit', severity:'Testseverity', msg:'Test msg', verbose:'Test Verbose', cwe:'561', inconclusive:'true', file0:'Sonarproject.c') {
                     location(file:"Sonarproject.c", line:"28", column:"5")
                     }
-                    errors.append(errorNode)
+                    errorxml.append(errorNode)
                     
                     // Quality Gate criteria
                     def maxErrors = 3
