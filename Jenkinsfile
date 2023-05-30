@@ -44,10 +44,11 @@ pipeline {
                     // Read the content of cppcheck.xml
                     def xmlContent = readFile('cppcheck.xml')
                     
-                    // Parse the xml content
+                    echo "Parse the xml content"
                     def xmlFile = new XmlSlurper().parseText(xmlContent)
+                    echo xmlFile
                     
-                    // Create a new error element
+                    echo "Create a new error element"
                     def newError = xml.errors.appendNode('error', [
                         id: 'newErrorId',
                         severity: 'error',
@@ -58,14 +59,14 @@ pipeline {
                         file0: 'Sonarproject.c'
                     ])
                     
-                    // Set the location for the new error
+                    echo "Set the location for the new error"
                     newError.appendNode('location', [
                         file: 'Sonarproject.c',
                         line: '6',
                         column: '3'
                     ])
                     
-                    // Write the updated xml content back to cppcheck.xml
+                    echo "Write the updated xml content back to cppcheck.xml"
                     def updatedXmlContent = groovy.xml.XmlUtil.serialize(xmlFile)
                     writeFile file: 'cppcheck.xml', text: updatedXmlContent
                     
