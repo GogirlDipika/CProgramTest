@@ -40,13 +40,7 @@ pipeline {
                     // Access elements in the XML document
                     //def errorCount = xml.@errors.toInteger()
                     //def warningCount = xml.@warnings.toInteger()
-                    echo "Reading xml"
-                    // Read the content of cppcheck.xml
-                    def xmlContent = readFile('cppcheck.xml')
-                    
-                    echo "Parse the xml content"
-                    def xmlFile = new XmlSlurper().parseText(xmlContent)
-                    echo xmlFile
+                    echo "Editing xml"
                     
                     echo "Create a new error element"
                     def newError = xml.errors.appendNode('error', [
@@ -67,7 +61,7 @@ pipeline {
                     ])
                     
                     echo "Write the updated xml content back to cppcheck.xml"
-                    def updatedXmlContent = groovy.xml.XmlUtil.serialize(xmlFile)
+                    def updatedXmlContent = groovy.xml.XmlUtil.serialize(xml)
                     writeFile file: 'cppcheck.xml', text: updatedXmlContent
                     
                     echo 'New error added to cppcheck.xml'
